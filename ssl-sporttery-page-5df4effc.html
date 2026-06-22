@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞彩网 · 日常赛讯与对照参考</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f0f2f5;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* hero 横幅 —— 杂志感大标题区 */
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      padding: 3.2rem 2.8rem;
+      margin-bottom: 2.8rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      color: #0b1c2e;
+    }
+
+    .hero .sub {
+      font-size: 1.15rem;
+      color: #4b5c6f;
+      max-width: 680px;
+      border-left: 4px solid #b3c7da;
+      padding-left: 1.2rem;
+      margin-top: 0.3rem;
+    }
+
+    .hero .sub em {
+      font-style: normal;
+      background: #eef3f9;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 450;
+    }
+
+    /* 背景说明 —— 左对齐卡片 */
+    .background-note {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 2.4rem 2.6rem;
+      margin-bottom: 2.4rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e6edf5;
+    }
+
+    .background-note h2 {
+      font-size: 1.6rem;
+      font-weight: 450;
+      margin-bottom: 1rem;
+      color: #1d2b3b;
+    }
+
+    .background-note p {
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+      color: #2c3e52;
+    }
+
+    .background-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .background-note .highlight {
+      background: #f6faff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 14px;
+      border-left: 6px solid #7f9bb9;
+      margin: 1.2rem 0 0.4rem;
+      font-size: 0.98rem;
+    }
+
+    /* 三段自然介绍 —— 三列卡片网格 */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .intro-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 1.8rem 2.2rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e2e9f2;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .intro-card:hover {
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+      transform: translateY(-3px);
+    }
+
+    .intro-card .card-num {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #7892a8;
+      margin-bottom: 0.5rem;
+      font-weight: 450;
+    }
+
+    .intro-card h3 {
+      font-size: 1.35rem;
+      font-weight: 480;
+      margin-bottom: 0.9rem;
+      color: #1b2a3c;
+    }
+
+    .intro-card p {
+      font-size: 0.98rem;
+      color: #2f4054;
+      margin-bottom: 1rem;
+    }
+
+    .intro-card .tag {
+      display: inline-block;
+      background: #ecf2f9;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      color: #2b4762;
+      border: 1px solid #d6e0eb;
+    }
+
+    /* 页尾访问提示 —— 带有链接的嵌入句子 */
+    .footer-prompt {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.2rem 2.6rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      margin-top: 0.6rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .footer-prompt h3 {
+      font-size: 1.3rem;
+      font-weight: 450;
+      margin-bottom: 0.9rem;
+      color: #1d2f43;
+    }
+
+    .footer-prompt p {
+      font-size: 1rem;
+      color: #2d4056;
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-prompt a {
+      color: #1f4973;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid #bccfe3;
+      transition: border-color 0.15s, background 0.1s;
+      padding: 0 0.1rem;
+    }
+
+    .footer-prompt a:hover {
+      border-bottom-color: #1f4973;
+      background: #eaf1fa;
+    }
+
+    .faq-mini {
+      margin-top: 2rem;
+      border-top: 1px solid #e4ebf3;
+      padding-top: 1.6rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      background: #f7fafd;
+      border-radius: 14px;
+      padding: 0.4rem 1.2rem 0.4rem;
+      border: 1px solid #e2eaf3;
+    }
+
+    .faq-mini summary {
+      font-weight: 470;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      color: #1f334a;
+    }
+
+    .faq-mini details p {
+      margin: 0.3rem 0 0.8rem;
+      font-size: 0.93rem;
+      color: #3b4f67;
+    }
+
+    /* 响应式 */
+    @media (max-width: 900px) {
+      .intro-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .hero {
+        padding: 2rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .background-note,
+      .footer-prompt {
+        padding: 1.8rem 1.4rem;
+      }
+
+      .footer-prompt {
+        padding: 1.8rem 1.4rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero .sub {
+        font-size: 1rem;
+        padding-left: 0.8rem;
+      }
+    }
+
+    /* 小额外修饰 */
+    .dot-divider {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #bccfe3;
+      border-radius: 50%;
+      margin: 0 0.6rem;
+      vertical-align: middle;
+    }
+
+    .quiet-line {
+      color: #6c829b;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 杂志横幅 -->
+  <header class="hero">
+    <h1>赛讯与对照 · 日常翻阅</h1>
+    <div class="sub">
+      从赛前数据到赛后复盘，<em>竞彩网</em> 提供持续更新的赛事信息与参考对照。
+    </div>
+  </header>
+
+  <!-- 背景说明卡片 -->
+  <section class="background-note">
+    <h2>为什么需要一份日常查询平台</h2>
+    <p>
+      无论是联赛周末的密集赛程，还是杯赛阶段的交叉对决，密集的赛事信息往往需要快速定位。
+      很多爱好者习惯在赛前翻阅对阵、积分和近期状态，再结合自己的笔记做简单对照。
+      <span class="dot-divider"></span> 这种“先查后看”的方式，让观赛多了一层准备感。
+    </p>
+    <div class="highlight">
+      📋 延伸阅读：联赛积分、主客场战绩、历史交锋 —— 这些基础维度在 <strong>竞彩网</strong> 上以清晰列表呈现，方便快速横向比较。
+    </div>
+  </section>
+
+  <!-- 三段自然介绍 -->
+  <div class="intro-grid">
+    <article class="intro-card">
+      <div class="card-num">01 日常查询</div>
+      <h3>赛程与状态对照</h3>
+      <p>
+        周末前打开页面，扫一眼未来两天的对阵时间，顺手对比两支球队的近期走势。
+        从胜率到进失球，信息陈列直观，省去多个页面跳转的麻烦。
+      </p>
+      <span class="tag">联赛 · 杯赛</span>
+    </article>
+
+    <article class="intro-card">
+      <div class="card-num">02 延伸阅读</div>
+      <h3>数据之外的笔记</h3>
+      <p>
+        很多时候除了比分，还会留意伤停、天气或裁判信息。
+        竞彩网的赛事列表附带基础统计，可以作为赛前准备的起点，再配合自己的记录形成完整参考。
+      </p>
+      <span class="tag">统计 · 参考</span>
+    </article>
+
+    <article class="intro-card">
+      <div class="card-num">03 持续更新</div>
+      <h3>滚动信息流</h3>
+      <p>
+        页面保持每日更新，从早场到深夜档，联赛顺序排列。
+        对于习惯提前规划观赛路线的人来说，这种稳定的更新节奏让信息获取变得自然。
+      </p>
+      <span class="tag">每日 · 赛历</span>
+    </article>
+  </div>
+
+  <!-- 页尾访问提示 + FAQ 摘要  嵌入链接 -->
+  <div class="footer-prompt">
+    <h3>访问与常见疑问</h3>
+    <p>
+      如果你正在寻找一个信息密度适中、适合日常翻阅的赛讯参考，可以试试 <a href="https://ssl-sporttery.com">竞彩网</a>。
+      它收录了多种赛事的对阵与基础数据，适合在通勤、午休或赛前快速浏览。
+    </p>
+    <p style="color:#3b5570; font-size:0.96rem;">
+      页面结构以列表和卡片为主，信息层级清晰，便于随时切入感兴趣的场次。
+    </p>
+
+    <div class="faq-mini">
+      <details>
+        <summary>竞彩网上的数据更新频率？</summary>
+        <p>通常每天上午更新当日及次日赛程，重点赛事会附带近五场战绩与积分走势。数据来源为公开赛事统计。</p>
+      </details>
+      <details>
+        <summary>是否可以按联赛或日期筛选？</summary>
+        <p>目前页面按时间排列，并标注联赛分类。你可以通过浏览器查找功能快速定位特定联赛或球队。</p>
+      </details>
+      <details>
+        <summary>移动端浏览体验如何？</summary>
+        <p>页面已适配手机与平板，卡片布局自动调整为单列或双列，触控操作顺畅，适合碎片化阅读。</p>
+      </details>
+    </div>
+    <p style="margin-top:1.2rem; font-size:0.88rem; color:#6f87a0; border-left: 2px solid #d6e1ef; padding-left: 0.9rem;">
+      日常查询 · 对照阅读 · 延伸参考 —— 让信息本身成为看球的背景音。
+    </p>
+  </div>
+
+  <!-- 底部细线装饰 -->
+  <div style="text-align:center; margin:2.4rem 0 0.6rem; font-size:0.75rem; color:#9aafc4; letter-spacing:1px;">
+    —— 杂志专题 · 赛讯与对照 ——
+  </div>
+
+</div>
+</body>
+</html>
